@@ -11,4 +11,7 @@ router.post("/add", usersController.add_user);
 
 router.get("/:id/delete", usersController.delete_user);
 
+router.get("/:id/:firstName/:lastName/edit", usersController.show_edit_user_form);
+router.post("/:id/edit", usersController.edit_user);
+
 module.exports = router;
