@@ -16,7 +16,7 @@ sequelize
 
 // modelname, attribute, options
 const UserModel = sequelize.define(
-  "recruiter",
+  "recruiters",
   {
     //attributes
     //id, firstName, lastName, createdAt, updatedAt
@@ -29,6 +29,7 @@ const UserModel = sequelize.define(
   },
   {
     //options
+    freezeTableName: true,
   }
 );
 
