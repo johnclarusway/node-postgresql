@@ -43,3 +43,35 @@ exports.delete_user = async (req, res) => {
   }
 };
 
+//on update get
+exports.getUpdateUser = async (req, res) => {
+  try {
+    const user = await UserModel.findOne({
+      where: {
+        id: req.params.id,
+      },
+    });
+    console.log(user);
+
+    res.render("updateUser", { user });
+  } catch (error) {
+    console.log("error", error);
+  }
+}
+
+// on update post
+exports.postUpdateUser = async (req, res, next) => {
+  try {
+    await UserModel.update(
+      {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        updateAt: Date.now(),
+      },
+      { where: { id: req.body.id } });
+
+    res.redirect('/users');
+  } catch (error) {
+    console.log('Error', error);
+  }
+}
