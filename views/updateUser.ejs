@@ -30,34 +30,34 @@
 			<div class="row main">
 				<div class="panel-heading">
 	               <div class="panel-title text-center">
-	               		<h1 class="title">Add new User</h1>
+	               		<h1 class="title">Update - <%= firstName %> -</h1>
 	               		<hr />
 	               	</div>
 	            </div> 
 				<div class="main-login main-center">
-					<form class="form-horizontal" method="post" action="/users/add">
+					<form class="form-horizontal" method="post" action="/users/<%= id %>/update">
 						<div class="form-group">
-							<label for="name" class="cols-sm-2 control-label">First Name</label>
+							<label for="name" class="cols-sm-2 control-label">New First Name</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="firstName" id="firstName"  placeholder="Enter First Name" minLength="2"  required/>
+									<input type="text" class="form-control" name="firstName" id="firstName"  placeholder="<%= firstName %>"minLength="2"  required/>
 								</div>
 							</div>
 						</div>
 
 						<div class="form-group">
-							<label for="username" class="cols-sm-2 control-label">Last Name</label>
+							<label for="username" class="cols-sm-2 control-label">New Last Name</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="lastName" id="lastName"  placeholder="Enter Last Name" minLength="2" required/>
+									<input type="text" class="form-control" name="lastName" id="lastName"  placeholder="<%= lastName %>"minLength="2"  required/>
 								</div>
 							</div>
 						</div>
 
 						<div class="form-group ">
-							<button type="submit" class="btn btn-primary btn-lg btn-block login-button">Add</button>
+							<button type="submit" class="btn btn-primary btn-lg btn-block login-button">Update</button>
 						</div>
 			
 					</form>
