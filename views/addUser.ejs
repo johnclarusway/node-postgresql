@@ -21,7 +21,7 @@
         <link rel="stylesheet" href="/stylesheets/add-user.css" />
         <link rel="stylesheet" href="/stylesheets/navbar.css" />
 
-		<title>Add User</title>
+		<title>Add/Update User</title>
 	</head>
 	<body>
 		<%- include('navbar.ejs') %>
@@ -30,18 +30,18 @@
 			<div class="row main">
 				<div class="panel-heading">
 	               <div class="panel-title text-center">
-	               		<h1 class="title">Add new User</h1>
+					<h1 class="title"><% if(user){ %> Update User <% } else { %> Add new User <% } %></h1>
 	               		<hr />
 	               	</div>
 	            </div> 
 				<div class="main-login main-center">
-					<form class="form-horizontal" method="post" action="/users/add">
+					<form class="form-horizontal" method="post" action=<% if(user){ %> <%"=/users/:user.id/edit"%> <% } else { %> "/users/add" <% } %>>
 						<div class="form-group">
 							<label for="name" class="cols-sm-2 control-label">First Name</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="firstName" id="firstName"  placeholder="Enter First Name"/>
+									<input type="text" class="form-control" name="firstName" id="firstName"  placeholder="Enter First Name" value=<% if(user){ %> <%= user.firstName %> <% } else { %> "" <% } %> />
 								</div>
 							</div>
 						</div>
@@ -51,13 +51,13 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="lastName" id="lastName"  placeholder="Enter Last Name"/>
+									<input type="text" class="form-control" name="lastName" id="lastName"  placeholder="Enter Last Name" value=<% if(user){ %> <%= user.lastName %> <% } else { %> "" <% } %>/>
 								</div>
 							</div>
 						</div>
 
 						<div class="form-group ">
-							<button type="submit" class="btn btn-primary btn-lg btn-block login-button">Add</button>
+							<button type="submit" class="btn btn-primary btn-lg btn-block login-button"> <% if(user){ %> Update <% } else { %> Add <% } %></button>
 						</div>
 			
 					</form>
